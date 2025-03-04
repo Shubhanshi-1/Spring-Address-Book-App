@@ -14,16 +14,19 @@ import com.bridgelabz.addressbookapp.dto.ContactDTO;
 public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     private String name;
     private String email;
     private String phone;
     
     
-    public Contact(ContactDTO contactDTO) {
+    public Contact(int id, ContactDTO contactDTO) {
+        this.id = id;
         this.name = contactDTO.getName();
         this.phone = contactDTO.getPhone();
         this.email = contactDTO.getEmail();
     }
-}
+
+    }
+

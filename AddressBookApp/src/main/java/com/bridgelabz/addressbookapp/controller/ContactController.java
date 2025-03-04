@@ -15,55 +15,32 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/contacts")
 public class ContactController {
-
-    private final ContactRepository contactRepository;
-
-    public ContactController(ContactRepository contactRepository) {
-        this.contactRepository = contactRepository;
-    }
-
-    // GET all contacts
-    @GetMapping
-    public ResponseEntity<List<Contact>> getAllContacts() {
-        return ResponseEntity.ok(contactRepository.findAll());
-    }
-
-    // GET contact by ID
-    @GetMapping("/{id}")
-    public ResponseEntity<Contact> getContactById(@PathVariable Long id) {
-        Optional<Contact> contact = contactRepository.findById(id);
-        return contact.map(ResponseEntity::ok)
-                      .orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
- 
-    // PUT - Update an existing contact by ID
-    @PutMapping("/{id}")
-    public ResponseEntity<Contact> updateContact(@PathVariable Long id, @RequestBody Contact updatedContact) {
-        return contactRepository.findById(id)
-                .map(contact -> {
-                    contact.setName(updatedContact.getName());
-                    contact.setEmail(updatedContact.getEmail());
-                    contact.setPhone(updatedContact.getPhone());
-                    return ResponseEntity.ok(contactRepository.save(contact));
-                })
-                .orElseGet(() -> ResponseEntity.notFound().build());
-    }
     @Autowired
-    private AddressBookAppService addressBookService; 
+    private AddressBookAppService addressBookAppService;
 
-    @PostMapping("/create")
-    public Contact createContact(@RequestBody ContactDTO addressBookDTO) {
-        return addressBookService.createContact(addressBookDTO);
+    @PostMapping
+    public Contact createContact(@RequestBody ContactDTO contactDTO) {
+        return addressBookAppService.createContact(contactDTO);
     }
 
-    // DELETE - Delete a contact by ID
+    @GetMapping
+    public List<Contact> getAllContacts() {
+        return addressBookAppService.getAllContacts();
+    }
+
+    @GetMapping("/{id}")
+    public Contact getContactById(@PathVariable int id) {
+        return addressBookAppService.getContactById(id);
+    }
+
+    @PutMapping("/{id}")
+    public Contact updateContact(@PathVariable int id, @RequestBody ContactDTO contactDTO) {
+        return addressBookAppService.updateContact(id, contactDTO);
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteContact(@PathVariable Long id) {
-        if (contactRepository.existsById(id)) {
-            contactRepository.deleteById(id);
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.notFound().build();
+    public String deleteContact(@PathVariable int id) {
+        boolean deleted = addressBookAppService.deleteContact(id);
+        return deleted ? "Deleted successfully" : "Contact not found";
     }
 }
