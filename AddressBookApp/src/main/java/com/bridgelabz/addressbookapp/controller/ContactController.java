@@ -1,15 +1,16 @@
 package com.bridgelabz.addressbookapp.controller;
 
 
-
+import com.bridgelabz.addressbookapp.dto.ContactDTO;
 import com.bridgelabz.addressbookapp.model.Contact;
 import com.bridgelabz.addressbookapp.repository.ContactRepository;
 import org.springframework.http.ResponseEntity;
+import com.bridgelabz.addressbookapp.service.AddressBookAppService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
 
 @RestController
 @RequestMapping("/contacts")
@@ -35,12 +36,7 @@ public class ContactController {
                       .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // POST - Create a new contact
-    @PostMapping
-    public ResponseEntity<Contact> createContact(@RequestBody Contact contact) {
-        return ResponseEntity.ok(contactRepository.save(contact));
-    }
-
+ 
     // PUT - Update an existing contact by ID
     @PutMapping("/{id}")
     public ResponseEntity<Contact> updateContact(@PathVariable Long id, @RequestBody Contact updatedContact) {
@@ -52,6 +48,13 @@ public class ContactController {
                     return ResponseEntity.ok(contactRepository.save(contact));
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+    @Autowired
+    private AddressBookAppService addressBookService; 
+
+    @PostMapping("/create")
+    public Contact createContact(@RequestBody ContactDTO addressBookDTO) {
+        return addressBookService.createContact(addressBookDTO);
     }
 
     // DELETE - Delete a contact by ID

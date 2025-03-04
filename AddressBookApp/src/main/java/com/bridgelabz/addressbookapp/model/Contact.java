@@ -1,9 +1,10 @@
 package com.bridgelabz.addressbookapp.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.*; 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.bridgelabz.addressbookapp.dto.ContactDTO;
 
 @Data
 @NoArgsConstructor
@@ -18,4 +19,11 @@ public class Contact {
     private String name;
     private String email;
     private String phone;
+    
+    
+    public Contact(ContactDTO contactDTO) {
+        this.name = contactDTO.getName();
+        this.phone = contactDTO.getPhone();
+        this.email = contactDTO.getEmail();
+    }
 }
