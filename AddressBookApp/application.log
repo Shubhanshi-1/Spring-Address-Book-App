@@ -1,0 +1,12 @@
+2025-03-04 16:07:39.432 [restartedMain] INFO  [c.b.a.AddressBookAppApplication         ] - Starting AddressBookAppApplication using Java 21.0.6 with PID 15980 (D:\Capgemini training\Week 6 and 7\Address book App\AddressBookApp\target\classes started by HP in D:\Capgemini training\Week 6 and 7\Address book App\AddressBookApp)
+2025-03-04 16:07:39.434 [restartedMain] DEBUG [c.b.a.AddressBookAppApplication         ] - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-03-04 16:07:39.435 [restartedMain] INFO  [c.b.a.AddressBookAppApplication         ] - The following 1 profile is active: "dev"
+2025-03-04 16:07:43.150 [restartedMain] WARN  [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-04 16:07:43.727 [restartedMain] INFO  [c.b.a.AddressBookAppApplication         ] - Started AddressBookAppApplication in 4.814 seconds (process running for 7.262)
+2025-03-04 16:07:43.731 [restartedMain] INFO  [c.b.a.AddressBookAppApplication         ] - Address book app started in DEV Environment
+2025-03-04 16:10:35.593 [restartedMain] INFO  [c.b.a.AddressBookAppApplication         ] - Starting AddressBookAppApplication using Java 21.0.6 with PID 15980 (D:\Capgemini training\Week 6 and 7\Address book App\AddressBookApp\target\classes started by HP in D:\Capgemini training\Week 6 and 7\Address book App\AddressBookApp)
+2025-03-04 16:10:35.594 [restartedMain] DEBUG [c.b.a.AddressBookAppApplication         ] - Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-03-04 16:10:35.594 [restartedMain] INFO  [c.b.a.AddressBookAppApplication         ] - The following 1 profile is active: "dev"
+2025-03-04 16:10:36.052 [restartedMain] WARN  [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-04 16:10:36.224 [restartedMain] INFO  [c.b.a.AddressBookAppApplication         ] - Started AddressBookAppApplication in 0.661 seconds (process running for 179.759)
+2025-03-04 16:10:36.228 [restartedMain] INFO  [c.b.a.AddressBookAppApplication         ] - Address book app started in DEV Environment
