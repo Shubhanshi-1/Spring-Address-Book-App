@@ -3,10 +3,14 @@ package com.bridgelabz.addressbookapp.service;
 import com.bridgelabz.addressbookapp.dto.ContactDTO;
 import com.bridgelabz.addressbookapp.model.Contact;
 import org.springframework.stereotype.Service;
+import lombok.extern.slf4j.Slf4j;
 import java.util.ArrayList;
 import java.util.List;
 import com.bridgelabz.addressbookapp.controller.ContactController;
+
 @Service
+@Slf4j  
+
 public class AddressBookAppService {
     private List<Contact> contactList = new ArrayList<>();
     private int idCounter = 1;
